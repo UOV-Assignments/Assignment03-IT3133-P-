@@ -15,7 +15,7 @@ export default function Login() {
   const handleLogin = () => {
     try {
       if (!username || !password) {
-        alert("Please enter username and password");
+        // alert("Please enter username and password");
         setError("Please enter a username and password");
         return;
       } else {
@@ -24,9 +24,11 @@ export default function Login() {
           alert("Login successful!");
           setUsername("");
           setPassword("");
+          setError("");
           navigation.navigate("Home");
         } else {
-          alert("Invalid username or password");
+          //   alert("Invalid username or password");
+          setError("Invalid username or password");
         }
       }
     } catch (error) {
@@ -88,9 +90,12 @@ export default function Login() {
           Login
         </Button>
       </View>
-      <View>
-        <Text>{error}</Text>
-      </View>
+      {error && (
+        <View style={styles.errorContainer}>
+          <Icon name="info" style={styles.infoIcon} />
+          <Text style={styles.errorContent}>{error}</Text>
+        </View>
+      )}
     </>
   );
 }
@@ -129,12 +134,30 @@ const styles = StyleSheet.create({
     position: "absolute",
     right: 57,
     top: 95,
-    zIndex: 999999,
     color: "gray",
   },
   previewText: {
     fontSize: 16,
     marginTop: 10,
     textAlign: "center",
+  },
+  errorContainer: {
+    backgroundColor: "pink",
+    width: 350,
+    height: 30,
+    borderRadius: 20,
+    alignItems: "center",
+    justifyContent: "center",
+    alignSelf: "center",
+    marginTop: 10,
+    flexDirection: "row",
+  },
+
+  errorContent: {
+    fontSize: 16,
+  },
+  infoIcon: {
+    fontSize: 18,
+    marginRight: 5,
   },
 });
