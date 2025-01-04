@@ -6,7 +6,8 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Icon from "react-native-vector-icons/MaterialIcons";
 
 const Tab = createBottomTabNavigator();
-export default function Home() {
+export default function Home({route}) {
+  const {user} = route.params;
   return (
     <>
       <Tab.Navigator
@@ -25,7 +26,7 @@ export default function Home() {
           },
         })}
       >
-        <Tab.Screen name="Profile" component={Profile} />
+        <Tab.Screen name="Profile" component={Profile({user})} />
         <Tab.Screen name="Courses" component={Course} />
         <Tab.Screen name="Subjects" component={Subjects} />
       </Tab.Navigator>

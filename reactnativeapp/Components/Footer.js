@@ -16,6 +16,8 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     alignSelf: "center",
     marginBottom: 20,
+    position: 'relative',
+    bottom: 0,
   },
   footerText: {
     color: "white",

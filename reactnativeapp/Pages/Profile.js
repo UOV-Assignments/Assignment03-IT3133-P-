@@ -5,8 +5,8 @@ import { Divider } from "react-native-paper";
 import Banner from "../Components/Banner";
 import Footer from "../Components/Footer";
 
-export default function Profile() {
-  const user = students[0];
+export default function Profile({route}) {
+  const user = route.params;
   console.log(user);
   return (
     <>
