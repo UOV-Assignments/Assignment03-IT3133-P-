@@ -2,8 +2,8 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { PaperProvider } from "react-native-paper";
-import Login from "./components/Login";
-import Home from "./components/Home";
+import Login from "./Pages/Login";
+import Home from "./Pages/Home";
 
 export default function App() {
   const Stack = createNativeStackNavigator();
