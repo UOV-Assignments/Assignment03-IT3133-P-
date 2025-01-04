@@ -5,8 +5,7 @@ import { Divider } from "react-native-paper";
 import Banner from "../Components/Banner";
 import Footer from "../Components/Footer";
 
-export default function Profile({route}) {
-  const user = route.params;
+export default function Profile({ user }) {
   console.log(user);
   return (
     <>
@@ -52,7 +51,7 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     padding: 25,
     marginBottom: 40,
-    borderRadius: 10, 
+    borderRadius: 10,
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.2,
