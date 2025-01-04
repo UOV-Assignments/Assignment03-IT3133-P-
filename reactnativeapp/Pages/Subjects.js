@@ -15,7 +15,7 @@ export default function Subjects({ user2 }) {
   const totalMarksList = marks.filter((mark) => mark.student_id === user2.id);
 
   let sum = 0;
-  for (let i = 0; i <= totalMarksList.length; i++) {
+  for (let i = 0; i < totalMarksList.length; i++) {
     sum += totalMarksList[i].marks;
   }
   const avg = subcount > 0 ? Math.floor(sum / subcount) : 0;

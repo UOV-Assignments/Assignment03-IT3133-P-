@@ -1,6 +1,5 @@
 import { View, Text, StyleSheet, Image, ScrollView } from "react-native";
 import React from "react";
-import { students } from "../assets/dataset/studentdb";
 import { Divider } from "react-native-paper";
 import Banner from "../Components/Banner";
 import Footer from "../Components/Footer";
