@@ -12,14 +12,23 @@ export default function App() {
       <PaperProvider>
         <NavigationContainer>
           <Stack.Navigator
+            initialRouteName="Home"
             screenOptions={{
               headerStyle: { backgroundColor: "#70116d" },
               headerTitleStyle: { color: "#fff" },
               headerTitleAlign: "center",
             }}
           >
-            <Stack.Screen name="UoV Student Care" component={Login} />
-            <Stack.Screen name="Home" component={Home} />
+            <Stack.Screen
+              name="Login"
+              component={Login}
+              options={{ title: "UoV Student Care" }}
+            />
+            <Stack.Screen
+              name="Home"
+              component={Home}
+              options={{ title: "UoV Student Care" }}
+            />
           </Stack.Navigator>
         </NavigationContainer>
       </PaperProvider>

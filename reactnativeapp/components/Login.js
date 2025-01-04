@@ -25,7 +25,7 @@ export default function Login() {
           setUsername("");
           setPassword("");
           setError("");
-          navigation.navigate("Home");
+          navigation.navigate("Home", { user:student });
         } else {
           //   alert("Invalid username or password");
           setError("Invalid username or password");
