@@ -5,9 +5,8 @@ import Banner from "../Components/Banner";
 import { Divider } from "react-native-paper";
 import Footer from "../Components/Footer";
 
-export default function Course({user}) {
-  
-  const course = courses.find((course) => course.id === user.course_id);
+export default function Course({ user1 }) {
+  const course = courses.find((course) => course.id === user1.course_id);
 
   return (
     <ScrollView>

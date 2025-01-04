@@ -26,9 +26,12 @@ export default function Home({ route }) {
           },
         })}
       >
-        <Tab.Screen name="Profile">{()=><Profile user={user} />}</Tab.Screen>
-        <Tab.Screen name="Courses" >{()=><Course user = {user}/>} </Tab.Screen>
-        <Tab.Screen name="Subjects">{()=><Subjects user = {user} />}</Tab.Screen>
+        <Tab.Screen name="Profile" component={() => <Profile user={user} />} />
+        <Tab.Screen name="Courses" component={() => <Course user={user} />} />
+        <Tab.Screen
+          name="Subjects"
+          component={() => <Subjects user={user} />}
+        />
       </Tab.Navigator>
     </>
   );
