@@ -1,12 +1,12 @@
-import { View, Text, ScrollView, Image, StyleSheet } from "react-native";
+import { View, Text, Image, StyleSheet } from "react-native";
 import React, { useState } from "react";
-import { SafeAreaProvider } from "react-native-safe-area-context";
 import { Button, TextInput } from "react-native-paper";
 import Icon from "react-native-vector-icons/MaterialIcons";
-import { students } from "../assets/dataset/studentdb";
 
 export default function Login() {
   const [showPassword, setShowPassword] = useState(true);
+  const [username, setUsername] = useState("");
+
   return (
     <>
       <View>
@@ -21,13 +21,21 @@ export default function Login() {
         <Text style={styles.heading}>{"Student Login".toUpperCase()}</Text>
       </View>
       <View style={styles.inputContainer}>
-        <TextInput label="Username" mode="outlined" style={styles.textInput} />
+        <TextInput
+          label="Username"
+          mode="outlined"
+          value={username}
+          onChangeText={(text) => setUsername(text)}
+          style={styles.textInput}
+        />
+
         <TextInput
           label="Password"
-          secureTextEntry={showPassword ? true : false}
+          secureTextEntry={showPassword}
           mode="outlined"
           style={styles.textInput}
         />
+
         {showPassword ? (
           <Icon
             name="visibility"
@@ -45,13 +53,19 @@ export default function Login() {
             onPress={() => setShowPassword(true)}
           />
         )}
+
         <Button mode="contained" style={styles.button}>
           Login
         </Button>
+
+        <View>
+          <Text style={styles.previewText}>{`Username is: ${username}`}</Text>
+        </View>
       </View>
     </>
   );
 }
+
 const styles = StyleSheet.create({
   banner: {
     width: 300,
@@ -82,11 +96,16 @@ const styles = StyleSheet.create({
     textAlign: "center",
     marginTop: 20,
   },
-  eyeIcon:{
-    position: 'absolute',
+  eyeIcon: {
+    position: "absolute",
     right: 57,
     top: 95,
     zIndex: 999999,
-    color: 'gray'
-  }
+    color: "gray",
+  },
+  previewText: {
+    fontSize: 16,
+    marginTop: 10,
+    textAlign: "center",
+  },
 });
