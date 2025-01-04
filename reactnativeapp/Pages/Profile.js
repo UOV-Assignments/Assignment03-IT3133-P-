@@ -5,9 +5,7 @@ import { Divider } from "react-native-paper";
 import Banner from "../Components/Banner";
 import Footer from "../Components/Footer";
 
-export default function Profile({ route }) {
-  const user = students[0];
-  console.log(user);
+export default function Profile({ user }) {
   return (
     <>
       <ScrollView>

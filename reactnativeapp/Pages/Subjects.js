@@ -11,8 +11,8 @@ import Banner from "../Components/Banner";
 import Footer from "../Components/Footer";
 import { Divider } from "react-native-paper";
 
-export default function Subjects() {
-  const user = students[0];
+export default function Subjects({user}) {
+ 
   const course = courses.find((course) => course.id === user.course_id);
 
   const subjectList = subjects.filter((sub) => sub.course_id === course.id);
@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
     textAlign: "left",
   },
   footers: {
-    marginTop: 190,
+    marginTop: 100,
   },
   tableHeading:{
     flexDirection: 'row',

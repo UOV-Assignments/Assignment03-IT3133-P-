@@ -7,7 +7,7 @@ import Icon from "react-native-vector-icons/MaterialIcons";
 
 const Tab = createBottomTabNavigator();
 export default function Home({ route }) {
-  // const { user } = route.params;
+  const { user } = route.params;
   return (
     <>
       <Tab.Navigator
@@ -26,9 +26,9 @@ export default function Home({ route }) {
           },
         })}
       >
-        <Tab.Screen name="Profile" component={Profile} />
-        <Tab.Screen name="Courses" component={Course} />
-        <Tab.Screen name="Subjects" component={Subjects} />
+        <Tab.Screen name="Profile">{()=><Profile user={user} />}</Tab.Screen>
+        <Tab.Screen name="Courses" >{()=><Course user = {user}/>} </Tab.Screen>
+        <Tab.Screen name="Subjects">{()=><Subjects user = {user} />}</Tab.Screen>
       </Tab.Navigator>
     </>
   );
