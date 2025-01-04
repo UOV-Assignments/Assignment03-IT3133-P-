@@ -1,9 +1,11 @@
 import { View, Text, ScrollView, Image, StyleSheet } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import { SafeAreaProvider } from "react-native-safe-area-context";
-import { TextInput } from "react-native-paper";
+import { Button, TextInput } from "react-native-paper";
+import Icon from "react-native-vector-icons/MaterialIcons";
 
 export default function Login() {
+  const [showPassword, setShowPassword] = useState(true);
   return (
     <>
       <View>
@@ -21,10 +23,30 @@ export default function Login() {
         <TextInput label="Username" mode="outlined" style={styles.textInput} />
         <TextInput
           label="Password"
-          secureTextEntry={true}
+          secureTextEntry={showPassword ? true : false}
           mode="outlined"
           style={styles.textInput}
         />
+        {showPassword ? (
+          <Icon
+            name="visibility"
+            size={24}
+            color="gray"
+            style={styles.eyeIcon}
+            onPress={() => setShowPassword(false)}
+          />
+        ) : (
+          <Icon
+            name="visibility-off"
+            size={24}
+            color="gray"
+            style={styles.eyeIcon}
+            onPress={() => setShowPassword(true)}
+          />
+        )}
+        <Button mode="contained" style={styles.button}>
+          Login
+        </Button>
       </View>
     </>
   );
@@ -53,4 +75,17 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     borderRadius: 10,
   },
+  button: {
+    width: 300,
+    borderRadius: 20,
+    textAlign: "center",
+    marginTop: 20,
+  },
+  eyeIcon:{
+    position: 'absolute',
+    right: 57,
+    top: 95,
+    zIndex: 999999,
+    color: 'gray'
+  }
 });
