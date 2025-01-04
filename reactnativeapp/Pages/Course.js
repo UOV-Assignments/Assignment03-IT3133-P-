@@ -5,8 +5,7 @@ import Banner from "../Components/Banner";
 import { Divider } from "react-native-paper";
 import Footer from "../Components/Footer";
 
-export default function Course() {
-  const user = students[0];
+export default function Course({ user }) {
   const course = courses.find((course) => course.id === user.course_id);
 
   return (
