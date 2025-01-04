@@ -1,6 +1,7 @@
 import { View, Text, ScrollView, Image, StyleSheet } from "react-native";
 import React from "react";
 import { SafeAreaProvider } from "react-native-safe-area-context";
+import { TextInput } from "react-native-paper";
 
 export default function Login() {
   return (
@@ -15,6 +16,15 @@ export default function Login() {
       </View>
       <View>
         <Text style={styles.heading}>{"Student Login".toUpperCase()}</Text>
+      </View>
+      <View style={styles.inputContainer}>
+        <TextInput label="Username" mode="outlined" style={styles.textInput} />
+        <TextInput
+          label="Password"
+          secureTextEntry={true}
+          mode="outlined"
+          style={styles.textInput}
+        />
       </View>
     </>
   );
@@ -33,5 +43,14 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "center",
     marginTop: 25,
+  },
+  inputContainer: {
+    alignItems: "center",
+    marginTop: 40,
+  },
+  textInput: {
+    width: 300,
+    marginBottom: 20,
+    borderRadius: 10,
   },
 });
