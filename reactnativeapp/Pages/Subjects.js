@@ -1,12 +1,7 @@
 import { View, Text, ScrollView } from "react-native";
 import React from "react";
 import { StyleSheet } from "react-native";
-import {
-  courses,
-  marks,
-  students,
-  subjects,
-} from "../assets/dataset/studentdb";
+import { courses, marks, subjects } from "../assets/dataset/studentdb";
 import Banner from "../Components/Banner";
 import Footer from "../Components/Footer";
 import { Divider } from "react-native-paper";
@@ -18,9 +13,9 @@ export default function Subjects({ user2 }) {
   const subcount = subjectList.length;
 
   const totalMarksList = marks.filter((mark) => mark.student_id === user2.id);
-  console.log(totalMarksList);
+
   let sum = 0;
-  for (let i = 0; i < totalMarksList.length; i++) {
+  for (let i = 0; i <= totalMarksList.length; i++) {
     sum += totalMarksList[i].marks;
   }
   const avg = subcount > 0 ? Math.floor(sum / subcount) : 0;
