@@ -6,6 +6,7 @@ import Icon from "react-native-vector-icons/MaterialIcons";
 export default function Login() {
   const [showPassword, setShowPassword] = useState(true);
   const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
   return (
     <>
@@ -34,6 +35,8 @@ export default function Login() {
           secureTextEntry={showPassword}
           mode="outlined"
           style={styles.textInput}
+          value={password}
+          onChangeText={(text) => setPassword(text)}
         />
 
         {showPassword ? (
@@ -57,10 +60,6 @@ export default function Login() {
         <Button mode="contained" style={styles.button}>
           Login
         </Button>
-
-        <View>
-          <Text style={styles.previewText}>{`Username is: ${username}`}</Text>
-        </View>
       </View>
     </>
   );
