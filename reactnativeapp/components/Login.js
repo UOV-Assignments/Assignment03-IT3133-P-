@@ -3,28 +3,36 @@ import React, { useState } from "react";
 import { Button, TextInput } from "react-native-paper";
 import Icon from "react-native-vector-icons/MaterialIcons";
 import { students } from "../assets/dataset/studentdb";
+import { useNavigation } from "@react-navigation/native";
 
 export default function Login() {
   const [showPassword, setShowPassword] = useState(true);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const navigation = useNavigation();
 
   const handleLogin = () => {
     try {
       if (!username || !password) {
         alert("Please enter username and password");
+        setError("Please enter a username and password");
         return;
       } else {
-        const student = students.find((s) => 
-          s.username === username
-        );
+        const student = students.find((s) => s.username === username);
         if (student && student.password === password) {
           alert("Login successful!");
+          setUsername("");
+          setPassword("");
+          navigation.navigate("Home");
         } else {
           alert("Invalid username or password");
         }
       }
-    } catch (error) {}
+    } catch (error) {
+      console.error(error);
+      alert("An error occurred while logging in");
+    }
   };
 
   return (
@@ -79,6 +87,9 @@ export default function Login() {
         <Button mode="contained" style={styles.button} onPress={handleLogin}>
           Login
         </Button>
+      </View>
+      <View>
+        <Text>{error}</Text>
       </View>
     </>
   );
