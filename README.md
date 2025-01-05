@@ -16,14 +16,21 @@ It includes features such as stack and bottom navigation using React Navigation.
 Follow these steps to get the app up and running:
 
 1. **Clone the Repository** (if applicable):
+
    ```bash
    git clone https://github.com/UOV-Assignments/Assignment03-IT3133-P-.git
 
-2. **Navigate to the Project Directory** 
+   ```
+
+2. **Navigate to the Project Directory**
+
    ```bash
    cd reactnativeapp
 
+   ```
+
 3. **Install Dependencies**
+
    ```bash
    npm install
    ```
@@ -34,6 +41,7 @@ Follow these steps to get the app up and running:
    ```
 
 ## 📱 Preview
+
 <table>
   <tr>
     <td >
@@ -61,6 +69,3 @@ Follow these steps to get the app up and running:
     
   </tr>
 </table>
-
-
-## 📝 Notes
